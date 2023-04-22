@@ -1,0 +1,32 @@
+{
+  "en": {
+    "title": "Login",
+    "message": "Welcome back!",
+    "please_login": "Please, login to continue",
+    "label_email": "Email Address",
+    "placeholder_email": "Your email address",
+    "label_password": "Password",
+    "placeholder_password": "Enter your password",
+    "login": "Login",
+    "forgot": "Forgot Password?",
+    "continue": "Or",
+    "login_with_google": "Login with Google",
+    "createAccount": "Don't have an account?",
+    "signup": "Create Now"
+  },
+  "es": {
+    "title": "Iniciar sesión",
+    "message": "Bienvenido de nuevo!",
+    "please_login": "Por favor, inicia sesión para continuar",
+    "label_email": "Correo electrónico",
+    "placeholder_email": "Tu correo electrónico",
+    "label_password": "Contraseña",
+    "placeholder_password": "Ingresa tu contraseña",
+    "login": "Iniciar sesión",
+    "forgot": "¿Olvidaste tu contraseña?",
+    "continue": "O",
+    "login_with_google": "Iniciar sesión con Google",
+    "createAccount": "¿No tienes una cuenta?",
+    "signup": "Crear ahora"
+  }
+}
