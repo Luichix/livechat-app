@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Login from '../screens/Login'
-import Onboarding from '../screens/Onboarding'
+import Login from '../../app/auth/login'
+import Onboarding from '../../app/auth/Onboarding'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Platform, StyleSheet, View, ActivityIndicator } from 'react-native'
 import { loadFromStorage } from '../services/helpers/asyncStorage'
@@ -12,7 +12,7 @@ export default function AuthStack() {
   const [viewedOnboarding, setViewedOnboarding] = useState(false)
 
   const checkOnboarding = async () => {
-    if (loadFromStorage('@viewOnboarding')) setViewedOnboarding(true)
+    if (await loadFromStorage('@viewOnboarding')) setViewedOnboarding(true)
   }
 
   useEffect(() => {

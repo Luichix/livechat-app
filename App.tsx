@@ -1,26 +1,20 @@
-import { AuthProvider, LanguageProvider, GraphqlProvider } from './src/contexts'
-import { Provider } from 'react-redux'
-import { SheetProvider } from 'react-native-actions-sheet'
-import RootNavigator from './src/stacks/RootNavigator'
-import { store } from './src/redux/store'
-import { initDatabase } from './src/services/sql/database'
-// import './components/custom/sheets.js'
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
 
-export default function App(): JSX.Element {
-  initDatabase()
-    .then(() => console.log('Database Initialized'))
-    .catch(console.log)
+export default function App() {
   return (
-    <LanguageProvider>
-      <GraphqlProvider>
-        <Provider store={store}>
-          <AuthProvider>
-            <SheetProvider>
-              <RootNavigator />
-            </SheetProvider>
-          </AuthProvider>
-        </Provider>
-      </GraphqlProvider>
-    </LanguageProvider>
+    <View style={styles.container}>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})

@@ -5,7 +5,11 @@ import { DROPMESSAGE, DROPSESSION, DROPAGENT, DROPCUSTOMER } from './sentence'
 
 const DATABASE_NAME = 'dbChatAssistant'
 
-export const executeQuery = (query: string, success = () => {}, error: any = () => {}) => {
+export const executeQuery = (
+  query: string,
+  success = () => {},
+  error: any = () => {},
+) => {
   if (db && db !== null) {
     db.transaction((tx) => {
       tx.executeSql(query, [], success, error)
@@ -16,7 +20,7 @@ export const executeQuery = (query: string, success = () => {}, error: any = () 
 }
 
 export const initDatabase = () => {
-  return new Promise((resolve:any, reject) => {
+  return new Promise((resolve: any, reject) => {
     try {
       executeQuery(CUSTOMER)
       executeQuery(AGENT)
@@ -30,7 +34,7 @@ export const initDatabase = () => {
 }
 
 export const close = () => {
-  return new Promise((resolve:any, reject) => {
+  return new Promise((resolve: any, reject) => {
     try {
       executeQuery(DROPMESSAGE)
       executeQuery(DROPSESSION)

@@ -1,14 +1,6 @@
 import { SQLResultSet } from 'expo-sqlite'
 import { IMessage, ISession } from './redux'
 
-export enum UserInitialState {
-  _id = '',
-  username = '',
-  email = '',
-  organizationID = '',
-  avatar = '',
-}
-
 export enum ChatroomType {
   GET_CHATROOMS = 'GET_CHATROOMS',
 }
