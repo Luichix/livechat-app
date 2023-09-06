@@ -1,28 +1,42 @@
-import { configureStore, combineReducers, Dispatch } from '@reduxjs/toolkit'
-import userReducer from './slices/user.slice'
-// import messagesReducer from './reducers/message.reducer'
-// import chatroomsReducer from './reducers/chatroom.reducer'
-// import sessionsReducer from './reducers/session.reducer'
+import {
+  configureStore,
+  combineReducers,
+  ThunkAction,
+  Action,
+} from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-import { TActions } from '../models/constant'
+import user from './slices/user.slice'
+import messages from './slices/message.slice'
+import chatrooms from './slices/chatroom.slice'
+import sessions from './slices/session.slice'
 
-export type TRootState = {
-  user: ReturnType<typeof userReducer>
-  // messages: ReturnType<typeof messagesReducer>
-  // chatrooms: ReturnType<typeof chatroomsReducer>
-  // sessions: ReturnType<typeof sessionsReducer>
+export type RootState = {
+  user: ReturnType<typeof user>
+  messages: ReturnType<typeof messages>
+  chatrooms: ReturnType<typeof chatrooms>
+  sessions: ReturnType<typeof sessions>
+}
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>
+
+export default function getStore(incomingPreloadState?: RootState) {
+  const store = configureStore({
+    reducer: combineReducers({
+      user,
+      messages,
+      chatrooms,
+      sessions,
+    }),
+    preloadedState: incomingPreloadState,
+  })
+  return store
 }
 
-export const rootReducer = combineReducers<TRootState>({
-  user: userReducer,
-  // messages: messagesReducer,
-  // chatrooms: chatroomsReducer,
-  // sessions: sessionsReducer,
-})
+export type AppStore = ReturnType<typeof getStore>
+export type AppDispatch = AppStore['dispatch']
 
-export const rootStore = configureStore<TRootState, TActions, any>({
-  reducer: rootReducer,
-})
-
-export type TAppDispatch = Dispatch<TActions>
-export const useAppDispatch = () => useDispatch<TAppDispatch>()
+export const useAppDispatch = () => useDispatch<AppDispatch>()

@@ -2,11 +2,6 @@ module.exports = function (api) {
   api.cache(true)
   return {
     presets: ['babel-preset-expo'],
-    sourceMaps: true,
-    plugins: [
-      '@babel/transform-react-jsx-source',
-      '@babel/plugin-syntax-jsx',
-      'react-native-reanimated/plugin',
-    ],
+    plugins: ['expo-router/babel', 'react-native-reanimated/plugin'],
   }
 }

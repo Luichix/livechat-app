@@ -5,13 +5,22 @@ import {
   StyleSheet,
   Image,
   useWindowDimensions,
+  ImageSourcePropType,
 } from 'react-native'
 import tokens from '../../styles/tokens'
 
-export default function OnboardingItem({ item }) {
+interface OnboardingItemProps {
+  item: {
+    title: string
+    image: ImageSourcePropType
+    description: string
+  }
+}
+
+export default function OnboardingItem({ item }: OnboardingItemProps) {
   const { width } = useWindowDimensions()
   return (
-    <View style={[styles.container, width]}>
+    <View style={[styles.container, { width }]}>
       <Image
         source={item.image}
         style={[styles.image, { width, resizeMode: 'contain' }]}

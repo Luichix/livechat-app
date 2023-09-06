@@ -43,7 +43,7 @@ export default function NextButton({ percentage, scrollTo }) {
 
   return (
     <View style={styles.container}>
-      <Svg width={size} height={size}>
+      {/* <Svg width={size} height={size}>
         <G rotation="-90" origin={center}>
           <Circle
             stroke={tokens.colorPrimaryHighlight}
@@ -63,7 +63,7 @@ export default function NextButton({ percentage, scrollTo }) {
             strokeDashoffset={circumference - (circumference * 60) / 100}
           />
         </G>
-      </Svg>
+      </Svg> */}
       <TouchableOpacity
         style={styles.button}
         activeOpacity={0.6}

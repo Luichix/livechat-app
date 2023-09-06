@@ -7,16 +7,28 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native'
-import { useNavigation } from '@react-navigation/core'
 import dayjs from 'dayjs'
 import tokens from '../../styles/tokens'
-import { loadMessages } from '../../redux/actions/message.action'
-import { useDispatch } from 'react-redux'
+import { loadMessagesFromLocalDatabase } from '../../redux/slices/message.slice'
+import { useAppDispatch } from '../../redux/store'
 import IconState from './IconState'
+import { useRouter } from 'expo-router'
 
-export default function ChatRoomItem({ chatRoom }) {
-  const dispatch = useDispatch()
-  const navigation = useNavigation()
+interface ChatRoomItemProps {
+  chatRoom: {
+    newMessages: number
+    lastMessage: string
+    sessionID: string
+    customerID: string
+    datetime: string
+    name: string
+  }
+}
+
+export default function ChatRoomItem({ chatRoom }: ChatRoomItemProps) {
+  const dispatch = useAppDispatch()
+
+  const router = useRouter()
   const user = chatRoom.name
   chatRoom.newMessages = 1
   const avatar =
@@ -24,16 +36,21 @@ export default function ChatRoomItem({ chatRoom }) {
 
   const onPress = async () => {
     if (Platform.OS !== 'web') {
-      await dispatch(loadMessages(chatRoom.customerID))
+      await dispatch(loadMessagesFromLocalDatabase(chatRoom.customerID))
     }
-    navigation.navigate('Chat', {
-      customerID: chatRoom.customerID,
-      sessionID: chatRoom.sessionID,
-      name: user,
-      avatar:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/3.png',
+
+    router.push({
+      pathname: 'chat/chat',
+      params: {
+        customerID: chatRoom.customerID,
+        sessionID: chatRoom.sessionID,
+        name: user,
+        avatar:
+          'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/3.png',
+      },
     })
   }
+
   const fecha = new Date(chatRoom.datetime)
 
   const message = chatRoom.lastMessage || chatRoom.sessionID

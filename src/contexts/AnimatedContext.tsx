@@ -2,7 +2,19 @@ import React, { createContext } from 'react'
 import { Animated } from 'react-native'
 import { IProps } from '../models/context'
 
-export const AnimatedContext = createContext({})
+// Define una interfaz que describe la forma de los datos en el contexto
+interface AnimatedContextData {
+  animationValue: Animated.Value
+  backgroundStyle: {
+    backgroundColor: Animated.AnimatedInterpolation<string | number>
+  }
+  opacityStyle: { opacity: Animated.AnimatedInterpolation<string | number> }
+}
+
+// Crea el contexto con la interfaz como tipo genérico
+export const AnimatedContext = createContext<AnimatedContextData | undefined>(
+  undefined,
+)
 
 const AnimatedProvider = ({ children }: IProps) => {
   const animationValue = React.useRef(new Animated.Value(0)).current

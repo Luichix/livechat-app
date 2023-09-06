@@ -10,9 +10,6 @@ import {
 } from 'react-native'
 import { useHeaderHeight } from '@react-navigation/elements'
 import { useKeyboard } from '@react-native-community/hooks'
-import { isInterfaceType } from 'graphql'
-
-
 
 export default function KeyboardShift(props) {
   // eslint-disable-next-line no-unused-vars
@@ -62,10 +59,10 @@ export default function KeyboardShift(props) {
   // Android: we need an animated view since the keyboard style can vary widely
   // And React Native's KeyboardAvoidingView isn't always reliable
   if (Platform.OS === 'android') {
-
     return (
       <Animated.View
-        style={[styles.container, { transform: [{ translateY: shift }] }]}>
+        style={[styles.container, { transform: [{ translateY: shift }] }]}
+      >
         {children}
       </Animated.View>
     )

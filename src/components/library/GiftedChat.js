@@ -370,7 +370,7 @@ class GiftedChat extends React.Component {
    * Returns the height, based on current window size, taking the keyboard into account.
    */
   getMessagesContainerHeightWithKeyboard(
-    composerHeight = this.state.composerHeight
+    composerHeight = this.state.composerHeight,
   ) {
     return (
       this.getBasicMessagesContainerHeight(composerHeight) -
@@ -474,7 +474,7 @@ class GiftedChat extends React.Component {
       text: this.getTextFromProp(this.state.text),
       composerHeight: Math.max(
         this.props.minComposerHeight,
-        this.state.composerHeight
+        this.state.composerHeight,
       ),
       onSend: this.onSend,
       onContentSizeChange: this.onContentSizeChange,

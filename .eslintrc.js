@@ -1,32 +1,31 @@
 module.exports = {
-  settings: {
-    react: {
-      pragma: 'React',
-      version: '17.0.2',
-    },
-  },
   env: {
-    node: true,
+    browser: true,
     es2021: true,
-    jest: true,
+    node: true,
   },
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:react/recommended',
   ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
     },
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    requireConfigFile: false,
-    project: ['./tsconfig.json'],
   },
+  plugins: ['@typescript-eslint', 'react'],
   rules: {
     indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],

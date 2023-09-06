@@ -1,8 +1,6 @@
 import React, { forwardRef } from 'react'
-import PropTypes from 'prop-types';
 import { TextInput, StyleSheet } from 'react-native'
 import tokens from '../../styles/tokens'
-
 
 const InputText = forwardRef(function InputText(
   {
@@ -16,7 +14,7 @@ const InputText = forwardRef(function InputText(
     onSubmitEditing,
     returnKeyType,
   },
-  ref
+  ref,
 ) {
   return (
     <TextInput
@@ -52,24 +50,21 @@ const styles = StyleSheet.create({
   },
 })
 
-
 export default React.memo(InputText)
 
-
-
-import { ReactNode } from 'react';
-import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import { ReactNode } from 'react'
+import { ImageStyle, TextStyle, ViewStyle } from 'react-native'
 
 export interface InputProps {
-    type: string;
-    keyboardType: string;
-    placeholder: string;
-    onChangeText: Function;
-    value: string;
-    secureTextEntry: boolean;
-    blurOnSubmit: boolean;
-    onSubmitEditing: Function;
-    returnKeyType: string;
+  type: string
+  keyboardType: string
+  placeholder: string
+  onChangeText: Function
+  value: string
+  secureTextEntry: boolean
+  blurOnSubmit: boolean
+  onSubmitEditing: Function
+  returnKeyType: string
 }
 /**
 export declare function Avatar<TMessage extends IMessage = IMessage>(props: AvatarProps<TMessage>): JSX.Element | null;

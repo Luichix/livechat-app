@@ -1,7 +1,12 @@
 import { useState, createContext } from 'react'
 import { IProps } from '../models/context'
 
-export const TabContext = createContext({})
+interface TabContextData {
+  tab: string
+  setTab?: (tab: string) => void
+}
+
+export const TabContext = createContext<TabContextData>({ tab: 'Chats' })
 
 const TabProvider = ({ children }: IProps) => {
   const [tab, setTab] = useState('Chats')

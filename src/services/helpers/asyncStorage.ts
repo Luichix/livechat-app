@@ -1,17 +1,19 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { TStorage } from '../../models/storage'
 
-
-export const loadFromStorage = async (key: string) : Promise<TStorage> => {
+export const loadFromStorage = async (key: string): Promise<TStorage> => {
   try {
     const value = await AsyncStorage.getItem(key)
-      return value
-    } catch (e) {
+    return value
+  } catch (e) {
     console.warn(e)
     return null
   }
 }
-export const saveToStorage = async (key: string, value: string) : Promise<void> => {
+export const saveToStorage = async (
+  key: string,
+  value: string,
+): Promise<void> => {
   try {
     await AsyncStorage.setItem(key, value)
   } catch (e) {
