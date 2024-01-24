@@ -6,7 +6,9 @@ Live Chat is a mobile chat application designed for platform users to manage cus
 
 ## Screenshots / Demo 📸
 
-(Screenshots available in the corresponding section)
+The project haa no demo available.
+
+![livechat](assets/livechat.jpeg)
 
 ## Technologies Used ⚙️
 
