@@ -1,12 +1,47 @@
-✅ Your project is ready!
+# Live Chat
 
-To run your project, navigate to the directory and run one of the following yarn commands.
+## Project Description 💬
 
-- cd mobile
-- yarn start # you can open iOS, Android, or web from here, or run them directly with the commands below.      
-- yarn android
-- yarn ios # requires an iOS device or macOS for access to an iOS simulator
-- yarn web
+Live Chat is a mobile chat application designed for platform users to manage customer messages. It allows visualizing bot responses and responding to messages directly within the application.
 
-- GraphqlProvider.js = graphql-ws
-- GraphqlContext.js = graphql-transport-ws
+## Screenshots / Demo 📸
+
+(Screenshots available in the corresponding section)
+
+## Technologies Used ⚙️
+
+- Typescript
+- React Native
+- Expo
+- SQLite
+- GraphQL
+- Redux
+
+### Utilities 🧰
+
+- ESLint
+- Prettier
+
+## Installation 🛠️
+
+Make sure to have [npm](https://www.npmjs.com/) installed. To install dependencies, run the following command from the project directory:
+
+```bash
+npm install
+```
+
+## Project Usage 🚀
+
+The project was created using an older version of Expo and requires an update. It may not be compatible with newer versions and might not run on a test device without necessary updates.
+
+## Project Status 🚧
+
+The project is deprecated and needs to be updated to ensure compatibility with the latest versions of the technologies used.
+
+## Contribution 🤝
+
+Currently, there are no specific guidelines for contributing to the project.
+
+## License ⚖️
+
+This project is distributed under the MIT License.
